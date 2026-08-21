@@ -1,0 +1,221 @@
+:root{
+    /* Fundos */
+    --Preto:#000000;
+    --PretoClaro:#1c1c1e;
+    --CinzaEscuro:#2c2c2e;
+    --Cinza:#3a3a3c;
+    --CinzaClarissimo:#8e8e93;
+}
+
+*{
+    box-sizing:border-box;
+    margin:0px;
+    padding:0px;
+    text-decoration:none;
+    list-style:none;
+    font-family:sans-serif;
+    color:white; /* tirar depois */
+}
+
+
+/* Area fora do celular */
+#fora{
+    background-color:var(--PretoClaro);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    min-height:100vh;
+    width:100%;
+}
+
+
+/* Base do Celular */
+#celular{
+    display:flex;
+    flex-direction:column;
+    background-color:var(--Preto);
+    min-height:667px;
+    min-width:350px;
+    border:0.6rem solid var(--Cinza);
+    border-radius:50px;
+    overflow:hidden;
+    padding:1.2rem;
+}
+
+
+/* Estilizacao de enfeite das informacoes de cima */
+#info-cel-cima{
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    justify-content:space-between;
+    margin-bottom:1.5rem;
+}
+
+#enfeite-camera{
+    background-color:var(--CinzaEscuro);
+    height:1.5em;
+    width:7rem;
+    margin-right:-1.7rem;
+    border-radius:50px;
+    display:flex;
+    align-items:center;
+    justify-content:right;
+}
+#enfeite-camera span{
+    background-color:var(--Preto);
+    position:absolute;
+    height:1.2rem;
+    width:1.2rem;
+    border-radius:50%;
+    margin-right:0.3rem;
+}
+
+#info-cel-cima p{
+    font-size:1.2rem;
+}
+
+#icones-cel-cima{
+    display:flex;
+    flex-direction:row;
+    gap:0.2rem;
+}
+#icones-cel-cima img{
+    height:1.4rem;
+}
+
+/* Titulo da Galeria */
+#titulo-galeria h1{
+    font-size:2rem;
+    margin-bottom:1rem;
+}
+
+
+/* Navegacao Principal de pastas */
+#corpo-principal{
+    display:flex;
+    flex-direction:column;
+    align-items:stretch;
+    width:100%;
+}
+
+#nav-principal{
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    justify-content:space-between;
+    width:100%;
+    margin-bottom:1.5rem;
+}
+
+#botoes-pessoa-estudo{
+    background-color:var(--Cinza);
+    border-radius:5px;
+    height:1.8rem;
+    width:11rem;
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    justify-content:center;
+    gap:0.5rem;
+}
+#botoes-pessoa-estudo button{
+    border:none;
+    border-radius:5px;
+    font-size:1rem;
+    height:1.4rem;
+    width:4.89rem;
+}
+
+/* ------------------------------------- mexer depois---------------- */
+/* 1 liga o outro desliga ****tirar depois */       
+#botao-pessoal{
+    background-color:var(--CinzaClarissimo);
+}
+
+#botao-estudo{
+    background-color:var(--Cinza);
+}
+/* ------------------------------------- mexer depois---------------- */
+
+#acoes-galeria{
+    display:flex;
+    gap:0.75rem;
+}
+
+#botao-adicionar-imagem{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background-color:var(--Cinza);
+    border:none;
+    border-radius:50%;
+    overflow:hidden;
+    width:2.1rem;
+    height:2.1rem;
+}
+#botao-adicionar-imagem img{
+    width:1.4rem;
+}
+#botao-adicionar-imagem:hover{
+    background-color:var(--CinzaClarissimo);
+}
+
+#botao-editar-ordem{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background-color:var(--Cinza);
+    border:none;
+    border-radius:50%;
+    overflow:hidden;
+    width:2.1rem;
+    height:2.1rem;
+}
+#botao-editar-ordem img{
+    width:1.4rem;
+}
+#botao-editar-ordem:hover{
+    background-color:var(--CinzaClarissimo);
+}
+
+/* Estilizacao da area onde ficara as imagens */
+#imagens-template{
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:0.75rem;
+    align-items:center;
+    justify-content:center;
+}
+
+#imagens-template li{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:8rem;
+    width:8rem;
+    border-radius:10px;
+    border:0.18rem dotted var(--Cinza);
+    overflow:hidden;
+}
+
+#imagens-template li img{
+    max-width:200px;
+    max-height:200px;
+}
+
+
+/* Estilizacao de enfeite do menu de baixo */
+#menu-celular{
+    display:flex;
+    justify-content:center;
+    gap:4rem;
+    margin-top:auto;
+}
+#menu-celular button{
+    background-color:var(--Preto);
+    border:none;
+}
+#menu-celular button img{
+    height:1.8rem;
+}
