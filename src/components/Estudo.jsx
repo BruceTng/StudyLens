@@ -1,34 +1,36 @@
-import React from 'react'
+// Icones usados dentro da galeria
+import adicionarpasta from "../assets/icones-gerais/adicionar-pasta.svg"
+import mover from "../assets/icones-gerais/mover.svg"
+import pasta from "../assets/icones-gerais/pasta.svg"
+import lixo from "../assets/icones-gerais/lixo.svg"
+import editar from "../assets/icones-gerais/editar.svg"
+
+// Fotos de estudo
+import fotoredacao1 from "../assets/fotos-estudos/fotoredacao1.jpg"
+import fotomatematica1 from "../assets/fotos-estudos/fotomatematica1.jpg"
 
 const Estudo = () => {
   return (
     <>
-        <nav id="nav-principal">
-            <div id="botoes-pessoa-estudo">
-                <button id="botao-pessoal">Pessoal</button>
-                <button id="botao-estudo">Estudo</button>
-            </div>
-        
-            <div id="acoes-galeria">
-                <button id="botao-adicionar-imagem"><img src={adicionarimagem}/></button>
-                {/* <button><img src={adicionarpasta}/></button> ****entra depois */}
-                <button id="botao-editar-ordem"><img src={mover}/></button>
-            </div>
-        </nav>
-
         <div id="pastas">
-            <div>
-                <button class="pasta-materia"><img/></button>
-                <button class="editar-pasta"><img/></button>
-                <p>Matemática</p>
-                <span>0 itens</span>
+            <div className="pastas-estudo">
+                <img className="previa"/>
+                <button className="excluir-pasta" hidden><img src={lixo}/></button>
+                <button className="editar-pasta" hidden><img src={editar}/></button>
+                <span>
+                    <img src={pasta}/>
+                    <p>Matemática</p>
+                </span>
             </div>
 
-            <div>
-                <button class="pasta-materia"><img/></button>
-                <button class="editar-pasta"><img/></button>
-                <p>História</p>
-                <span>0 itens</span>
+            <div className="pastas-estudo">
+                <img className="previa"/>
+                <button className="excluir-pasta" hidden><img src={lixo}/></button>
+                <button className="editar-pasta" hidden><img src={editar}/></button>
+                <span>
+                    <img src={pasta}/>
+                    <p>Redação</p>
+                </span>
             </div>
         </div>
     </>

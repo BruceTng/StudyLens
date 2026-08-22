@@ -1,28 +1,26 @@
+// Import Dom
+import {Routes, Route, NavLink} from "react-router-dom"
+
+// IMPORT DE COMPONENTES ******************************** importante ****************************************
+import Pessoal from "./components/Pessoal"
+import Estudo from "./components/Estudo"
+
 // Icones de enfeite de status do celular, bateria, sinal e wifi
 import sinal from "./assets/icones-celular/sinal.svg"
 import wifi from "./assets/icones-celular/wifi.svg"
 import bateria from "./assets/icones-celular/bateria.svg"
 
-// Icones usados dentro da galeria
-import adicionarimagem from "./assets/icones-gerais/adicionar-imagem.svg"
-import adicionarpasta from "./assets/icones-gerais/adicionar-pasta.svg"
-import mover from "./assets/icones-gerais/mover.svg"
-import imagem from "./assets/icones-gerais/imagem.svg"
 
 // Icones de enfeite de menu do celular
 import voltar from "./assets/icones-celular/voltar.svg"
 import menu from "./assets/icones-celular/menu.svg"
 import apps from "./assets/icones-celular/apps.svg"
 
-// Imagens da galeria pessoal
-import show from "./assets/fotos-pessoais/show.jpg"
-import parque from "./assets/fotos-pessoais/parque.jpg"
-
-
 // Imagens da galeria de estudo
+import adicionarimagem from "./assets/icones-gerais/adicionar-imagem.svg"
+import mover from "./assets/icones-gerais/mover.svg"
 
-
-
+// Css
 import "./index.css"
 
 const App = () => {
@@ -50,44 +48,50 @@ const App = () => {
                 <div id="titulo-galeria">
                     <h1>Galeria</h1>
                 </div>
-{/* EDICAO COMECA AQUI ------------------------------------------------------------------------------------------------------------------ */}
+
                 <section id="corpo-principal">
                     <nav id="nav-principal">
-                        <div id="botoes-pessoa-estudo">
-                            <button id="botao-pessoal">Pessoal</button>
-                            <button id="botao-estudo">Estudo</button>
+                        {/* Alternar entre aba pessoal e aba de estudo */}
+                        <div id="botoes-pessoal-estudo">
+                            <NavLink 
+                            to="/pessoal" 
+                            id="botao-pessoal"
+                            className={({isActive}) => isActive ? "ativo" : undefined}
+                            >
+                            
+                            Pessoal
+                            </NavLink>
+
+                            <NavLink 
+                            to="/estudo" 
+                            id="botao-estudo"
+                            className={({isActive}) => isActive ? "ativo" :undefined}
+                            >
+
+                            Estudo
+                            </NavLink>
                         </div>
-{/* NAO ESQUECER DE APAGAR E MUDAR PARA IMPORT DOS COMPONENTES ESTUDO E PESSOAL, FACILITA PARA FAZER AS MUDANCAS DE PAGINA */}
+
+                        {/* Adicionar imagens ou editar posicoes */}
                         <div id="acoes-galeria">
-                            <button id="botao-adicionar-imagem"><img src={adicionarimagem}/></button>
-                            {/* <button><img src={adicionarpasta}/></button> ****entra depois */}
+                            {/* Adiciona imagens no Pessoal */}
+                            <label id="botao-adicionar-imagem" htmlFor="input-adicionar-imagem">
+                                <img src={adicionarimagem}/>
+                            </label>
+                            <input id="input-adicionar-imagem" type="file" accept="image/*" hidden></input>
+
+                            {/* Edita ordem das pastas */}
                             <button id="botao-editar-ordem"><img src={mover}/></button>
                         </div>
                     </nav>
 
-                    <ul id="imagens-template">
-                        <li><img src={show}/></li>
-                        <li><img src={parque}/></li>
-                        <li><img src={imagem}/></li>
-                    </ul>
-
-                    {/* <div id="pastas">
-                        <div>
-                            <button class="pasta-materia"><img/></button>
-                            <button class="editar-pasta"><img/></button>
-                            <p>Matemática</p>
-                            <span>0 itens</span>
-                        </div>
-
-                        <div>
-                            <button class="pasta-materia"><img/></button>
-                            <button class="editar-pasta"><img/></button>
-                            <p>História</p>
-                            <span>0 itens</span>
-                        </div>
-                    </div> ***entra depois */}
+                    <Routes>
+                        <Route path="/pessoal" element={<Pessoal/>}/>
+                        <Route path="/estudo" element={<Estudo/>}/>
+                        <Route path="/" element={<Pessoal/>}/>
+                    </Routes>
                 </section>
-{/* EDICAO ACABA AQUI ------------------------------------------------------------------------------------------------ */}
+
                 <nav id="menu-celular">
                     <button><img src={voltar}/></button>
                     <button><img src={menu}/></button>
