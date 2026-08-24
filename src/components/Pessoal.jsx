@@ -1,19 +1,22 @@
-// Icones usados dentro da galeria
-import adicionarimagem from "../assets/icones-gerais/adicionar-imagem.svg"
-import mover from "../assets/icones-gerais/mover.svg"
-import imagem from "../assets/icones-gerais/imagem.svg"
-
-// Imagens da galeria pessoal
-import show from "../assets/fotos-pessoais/show.jpg"
-import parque from "../assets/fotos-pessoais/parque.jpg"
-
-const Pessoal = () => {
+const Pessoal = ({ fotos, moverFoto, modoReordenar, setImagemAmpliada }) => {
   return (
     <>
         <ul id="imagens-template">
-            <li><img src={show}/></li>
-            <li><img src={parque}/></li>
-            <li><img src={imagem}/></li>
+            {fotos.map((foto, index) => (
+                <li 
+                    key={foto.id}
+                    onClick={() => !modoReordenar && setImagemAmpliada(foto.url)}
+                >
+                    <img src={foto.url}/>
+
+                    {modoReordenar && (
+                        <div className="setas-ordem">
+                            <button onClick={(e) => { e.stopPropagation(); moverFoto(index, -1) }}>▲</button>
+                            <button onClick={(e) => { e.stopPropagation(); moverFoto(index, 1) }}>▼</button>
+                        </div>
+                    )}
+                </li>
+            ))}
         </ul>
     </>
   )
